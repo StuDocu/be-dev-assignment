@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Progress;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class ProgressRepository
@@ -13,7 +14,7 @@ class ProgressRepository
      * @param array $questionIds
      * @return mixed
      */
-    public function listAnswered(array $questionIds)
+    public function listAnswered(array $questionIds): Collection
     {
         return Progress::whereIn('q_and_a_id', $questionIds)
             ->where('answered', true)
