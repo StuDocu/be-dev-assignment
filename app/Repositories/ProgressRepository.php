@@ -22,6 +22,16 @@ class ProgressRepository
     }
 
     /**
+     * Delete the Progresses with the supplied question ids
+     *
+     * @param array $questionIds
+     */
+    public function deleteFromQuestionIds(array $questionIds): void
+    {
+        Progress::whereIn('q_and_a_id', $questionIds)->delete();
+    }
+
+    /**
      * Retrieves the Progress of a question by the question Id
      * @param int $questionId
      * @return Progress|null

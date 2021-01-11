@@ -106,4 +106,21 @@ class ProgressService
             return [];
         }
     }
+
+    /**
+     * Delete the progress from the user
+     *
+     * @param User $user
+     * @return void
+     */
+    public function deleteFromUser(User $user): void
+    {
+        $qAndAs = $user->qAndAs()->get();
+        $questions = [];
+        foreach ($qAndAs as $qAndA) {
+            $questions[] = $qAndA->id;
+        }
+
+        $this->progressRepository->deleteFromQuestionIds($questions);
+    }
 }
