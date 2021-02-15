@@ -31,3 +31,5 @@ There is no requirement whatsoever to use this system, it is only included for y
 - Make a new console command to be run with `php artisan qanda:reset` that removes all previous progresses.
 - Write (a) unit test(s).
 
+### Running Tests
+`./vendor/bin/phpunit --stop-on-failure --testdox`
