@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Questionnaire;
 
+use App\Questionnaire\Models\UserAnswer;
+
 final class Question
 {
     public function save(string $question, string $answer)
@@ -53,5 +55,10 @@ final class Question
         }
 
         return $result;
+    }
+
+    public function resetUserAnswers(): void
+    {
+        UserAnswer::truncate();
     }
 }
