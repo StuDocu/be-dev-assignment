@@ -14,5 +14,10 @@ class Question extends Model
      * @var array
      */
     protected $fillable = ['question', 'answer'];
+
+    public function userAnswer()
+    {
+        return $this->hasOne(UserAnswer::class);
+    }
 }
 
